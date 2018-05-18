@@ -1,0 +1,54 @@
+<p class="text-center text-muted">&copy; Copyright 2018 github.com/iamgoangle</p>
+
+<script src="/public/lib/jquery-3.3.1.min.js"></script>
+<script src="/public/lib/jquery-sortable.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+<script>
+  let adjustment;
+
+  $("ol.my_todo_app_star").sortable({
+    group: 'no-drop',
+    drag: false
+  });
+
+  $("ol.my_todo_app").sortable({
+    group: 'my_todo_app',
+    pullPlaceholder: true,
+
+    onDrop: function ($item, container, _super) {
+      const $clonedItem = $('<li/>').css({ height: 0 });
+      $item.before($clonedItem);
+      $clonedItem.animate({ 'height': $item.height() });
+
+      $item.animate($clonedItem.position(), function () {
+        $clonedItem.detach();
+        _super($item, container);
+      });
+
+      console.log('$item', $item);
+      console.log('container', container);
+    },
+
+    // set $item relative to cursor position
+    onDragStart: function ($item, container, _super) {
+      const offset = $item.offset(),
+        pointer = container.rootGroup.pointer;
+
+      adjustment = {
+        left: pointer.left - offset.left,
+        top: pointer.top - offset.top
+      };
+
+      _super($item, container);
+    },
+
+    onDrag: function ($item, position) {
+      $item.css({
+        left: position.left - adjustment.left,
+        top: position.top - adjustment.top
+      });
+    }
+  });
+</script>
