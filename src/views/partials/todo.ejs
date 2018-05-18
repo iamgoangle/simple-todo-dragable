@@ -2,7 +2,7 @@
   <th>Pin</th>
   <th>Date</th>
   <th>Task</th>
-  <th>Done</th>
+  <th><button type="button" class="btn btn-success">Done</button></th>
 
   <ol class='simple_with_animation'>
     <li>
@@ -46,8 +46,10 @@
           <span class="glyphicon glyphicon-star pin-todo" aria-hidden="true"></span>
         </div>
         <div class="col-md-2">Date</div>
-        <div class="col-md-6">Item 1</div>
-        <div class="col-md-3">Done</div>
+        <div class="col-md-8">Item 1</div>
+        <div class="col-md-1">
+          <button type="button" class="btn btn-success">Done</button>
+        </div>
       </div>
     </div>
   </li>
@@ -55,27 +57,37 @@
 
 <h3>My Todo</h3>
 <ol class="my_todo_app vertical">
-  <li>
-    <div class="panel panel-default panel-todo">
-      <div class="panel-body">
-        <div class="col-md-1">
-          <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+  <% for(var i=0; i < todos.length; i++) { %>
+    <li>
+      <div class="panel panel-default panel-todo">
+        <div class="panel-body">
+          <div class="col-md-1">
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
+          </div>
+          <div class="col-md-2">
+            <%= todos[i].date %>
+          </div>
+          <div class="col-md-8">
+            <%= todos[i].task + todos[i].id %>
+          </div>
+          <div class="col-md-1">
+            <button type="button" class="btn btn-success">Done</button>
+          </div>
         </div>
-        <div class="col-md-2">Date</div>
-        <div class="col-md-6">Item 1</div>
-        <div class="col-md-3">Done</div>
       </div>
-    </div>
-  </li>
-  <li>
+    </li>
+  <% } %>
+      <!-- <li>
     <div class="panel panel-default panel-todo">
       <div class="panel-body">
         <div class="col-md-1">
           <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
         </div>
         <div class="col-md-2">Date</div>
-        <div class="col-md-6">Item 2</div>
-        <div class="col-md-3">Done</div>
+        <div class="col-md-8">Item 2</div>
+        <div class="col-md-1">
+          <button type="button" class="btn btn-success">Done</button>
+        </div>
       </div>
     </div>
   </li>
@@ -87,8 +99,10 @@
           <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
         </div>
         <div class="col-md-2">Date</div>
-        <div class="col-md-6">Item 3</div>
-        <div class="col-md-3">Done</div>
+        <div class="col-md-8">Item 3</div>
+        <div class="col-md-1">
+          <button type="button" class="btn btn-success">Done</button>
+        </div>
       </div>
     </div>
   </li>
@@ -99,8 +113,10 @@
           <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
         </div>
         <div class="col-md-2">Date</div>
-        <div class="col-md-6">Item 4</div>
-        <div class="col-md-3">Done</div>
+        <div class="col-md-8">Item 4</div>
+        <div class="col-md-1">
+          <button type="button" class="btn btn-success">Done</button>
+        </div>
       </div>
     </div>
   </li>
@@ -111,8 +127,10 @@
           <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
         </div>
         <div class="col-md-2">Date</div>
-        <div class="col-md-6">Item 5</div>
-        <div class="col-md-3">Done</div>
+        <div class="col-md-8">Item 5</div>
+        <div class="col-md-1">
+          <button type="button" class="btn btn-success">Done</button>
+        </div>
       </div>
     </div>
   </li>
@@ -123,9 +141,11 @@
           <span class="glyphicon glyphicon-star" aria-hidden="true"></span>
         </div>
         <div class="col-md-2">Date</div>
-        <div class="col-md-6">Item 6</div>
-        <div class="col-md-3">Done</div>
+        <div class="col-md-8">Item 6</div>
+        <div class="col-md-1">
+          <button type="button" class="btn btn-success">Done</button>
+        </div>
       </div>
     </div>
-  </li>
+  </li> -->
 </ol>

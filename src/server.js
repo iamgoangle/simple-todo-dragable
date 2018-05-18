@@ -11,8 +11,26 @@ app.get('/', (req, res) => {
     name: 'Teerapong Singthong'
   };
 
+  const todos = [
+    {
+      id: 0,
+      date: '18/05/2018',
+      task: 'Hello World',
+      isDone: false,
+      isImportant: false
+    },
+    {
+      id: 1,
+      date: '18/05/2018',
+      task: 'Hello World',
+      isDone: false,
+      isImportant: false
+    }
+  ]
+
   res.render('pages/index', {
-    userProfile
+    userProfile,
+    todos
   });
 });
 
